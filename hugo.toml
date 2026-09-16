@@ -1,9 +1,6 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'no-style-please'
+baseURL = 'https://andylinnn100.github.io/'
+locale = 'en-us'
+title = 'My New Hugo Site' # TODO: set the real site title
 
-[caches]
-  [caches.images]
-    dir = ':cacheDir/images'
-
+# TODO: pick a theme, add it under themes/, and set it here, e.g.
+# theme = 'papermod'

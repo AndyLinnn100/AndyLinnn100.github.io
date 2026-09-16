@@ -1,0 +1,11 @@
+# Hugo build output
+public/
+resources/
+
+# Hugo build lock & cache
+.hugo_build.lock
+.hugo/
+
+# Sass / Node
+.sass-cache/
+node_modules/
