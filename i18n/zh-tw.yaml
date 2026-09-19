@@ -1,0 +1,30 @@
+# 正體中文介面字串（語言鍵 zh-tw，對應 content 的 .zh-tw.md 檔案）。
+# 簡介／頁尾文字直接改這裡，不動主題。
+
+general:
+  back_home_text: "↩︎ 返回首頁"
+  categories: "分類："
+  tags: "標籤："
+  intro: "簡介。"
+  lastmod: "最後編輯"
+
+homepage:
+  intro: "這是第一行簡介，請編輯 i18n/zh-tw.yaml。"
+  moreintro: "第二行簡介。"
+  footer: '總瀏覽量：<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span> 次 · [RSS](/zh-tw/index.xml)'
+
+categories:
+  tech: "科技相關文章"
+  hobby: "興趣相關文章"
+
+rss:
+  rss_title: "我的網站名稱"
+  rss_description: "RSS 說明。"
+
+allPostsTitle: "所有文章："
+showMoreAll: "查看全部文章"
+categoryTitle: "分類「{{ . }}」的文章"
+showMoreCategory: "查看此分類更多文章"
+showMoreTech: "更多科技文章"
+showMoreHobby: "更多興趣文章"
+showMoreDefault: "查看此分類更多文章"

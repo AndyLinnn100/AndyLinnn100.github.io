@@ -1,0 +1,36 @@
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {{- if not .IsHome -}}
+      {{- .Title }} - {{ $.Site.Title -}}
+    {{- else -}}
+      {{- $.Site.Title -}}
+    {{- end -}}
+  </title>
+
+  {{ $description := .Description | default .Summary | default $.Site.Params.description }}
+  {{ with $description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ template "_internal/schema.html" . }}
+
+
+  {{ with .Site.Params.theme_config.favicon }}
+    <link rel="icon" href="{{ . | relURL }}">
+  {{ end }}
+  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+  {{ $sass := resources.Get "css/main.scss" }}
+  {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}">
+  {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
+
+  {{- /* site-level additions: appearance toggle + busuanzi view counters */}}
+  {{ $toggle := resources.Get "js/appearance-toggle.js" }}
+  {{ with $toggle }}
+    <script defer src="{{ .RelPermalink }}"></script>
+  {{ end }}
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

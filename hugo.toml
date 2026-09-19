@@ -1,6 +1,63 @@
 baseURL = 'https://andylinnn100.github.io/'
-locale = 'en-us'
 title = 'My New Hugo Site' # TODO: set the real site title
+theme = 'somestyleplease'
 
-# TODO: pick a theme, add it under themes/, and set it here, e.g.
-# theme = 'papermod'
+# lastmod from git commit history (shown on posts when it differs from date)
+enableGitInfo = true
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    locale = 'en-US'
+    label = 'English'
+    title = 'My New Hugo Site' # TODO: set the real site title
+    weight = 1
+  [languages.zh-tw]
+    locale = 'zh-TW'
+    label = '正體中文'
+    title = 'My New Hugo Site' # TODO: set the real site title
+    weight = 2
+
+# theme-style short URLs: /posts/foo.md renders at /foo/
+[permalinks]
+  posts = '/:contentbasename/'
+  pages = '/:contentbasename/'
+
+[params]
+  [params.theme_config]
+    appearance = 'auto' # auto | light | dark | matrix | bear | together (runtime toggle added in assets/js/appearance-toggle.js)
+    date_format = '2006-01-02'
+    categories = true
+    tags = true
+    post_limit = 100
+    show_more_url = 'posts'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # allow raw HTML in i18n strings (busuanzi counters in footer)
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'rrt'
+    tabWidth = 4
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
