@@ -1,0 +1,27 @@
+/* Site-level font override.
+ *
+ * The theme sets `body { font-family: monospace }` — a generic keyword.
+ * Browsers resolve generics per document language, so Latin text rendered
+ * differently on `lang="en-US"` vs `lang="zh-TW"` pages (CJK fallback fonts
+ * carry their own Latin glyphs).
+ *
+ * Fix: an explicit stack with Latin monospace fonts FIRST and Traditional
+ * Chinese fonts LAST. Latin glyphs then always resolve to the same font on
+ * both language pages; CJK glyphs fall through to the TC fonts consistently.
+ */
+body {
+  font-family:
+    ui-monospace,
+    "JetBrains Mono",
+    "Cascadia Mono",
+    "SF Mono",
+    Menlo,
+    Consolas,
+    "DejaVu Sans Mono",
+    "Liberation Mono",
+    "Noto Sans Mono CJK TC",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    monospace;
+}
