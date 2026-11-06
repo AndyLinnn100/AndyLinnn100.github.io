@@ -1,0 +1,27 @@
+/* Site-level font override.
+ *
+ * The theme sets `body { font-family: monospace }` — a generic keyword the
+ * browser resolves per document language, so Latin glyphs differed between
+ * lang="en-US" and lang="zh-TW" pages.
+ *
+ * IMPORTANT: browsers select a font per TEXT RUN, not per character. In a
+ * run starting with Chinese ("...請編輯 i18n/zh-tw.yaml。"), no Latin-only
+ * font covers the Han glyphs, so the engine picks a CJK font for the run
+ * and renders the run's English words with that CJK font's built-in Latin
+ * glyphs. A Latin-first stack therefore CANNOT unify the two languages.
+ *
+ * The fix: a single font covering BOTH scripts, placed FIRST. Every run —
+ * Latin-led or CJK-led — then resolves to the same family on every page.
+ * "Noto Sans Mono CJK TC" = monospaced half-width Latin + Traditional
+ * Chinese at 2:1 width, preserving the theme's mono alignment.
+ *
+ * Do not reorder this stack back to Latin-first — see comment above.
+ */
+body {
+  font-family:
+    "Noto Sans Mono CJK TC",
+    "Noto Sans Mono CJK SC",
+    "DejaVu Sans Mono",
+    "Liberation Mono",
+    monospace;
+}
