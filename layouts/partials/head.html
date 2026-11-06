@@ -28,11 +28,7 @@
   <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}">
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 
-  {{- /* site-level additions: font override, appearance toggle, busuanzi */}}
-  {{ $custom := resources.Get "css/custom.css" }}
-  {{ with $custom }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{ end }}
+  {{- /* site-level additions: appearance toggle + busuanzi view counters */}}
   {{ $toggle := resources.Get "js/appearance-toggle.js" }}
   {{ with $toggle }}
     <script defer src="{{ .RelPermalink }}"></script>
